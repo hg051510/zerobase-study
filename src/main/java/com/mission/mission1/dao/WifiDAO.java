@@ -1,6 +1,6 @@
 package com.mission.mission1.dao;
 
-import com.mission.mission1.vo.TestVO;
+import com.mission.mission1.vo.HistoryVO;
 import com.mission.mission1.vo.WifiVO;
 
 import java.sql.*;
@@ -95,50 +95,24 @@ public class WifiDAO {
         return res;
     }
 
-    public boolean create(TestVO vo){
+    public WifiVO read(HistoryVO historyVO){
         connect();
-        String sql = "insert into test1 (username, age, sex) values (?, ?, ?)";
-        try{
-            pstmt = connection.prepareStatement(sql);
-            pstmt.setString(1, vo.getName());
-            pstmt.setInt(2, vo.getAge());
-            pstmt.setString(3, vo.getSex());
+        WifiVO wifiVO = new WifiVO();
 
-            pstmt.executeUpdate();
-        }catch (SQLException e){
-            e.printStackTrace();
-            return false;
-        }finally {
-            disconnect();
-        }
-        return true;
-    }
-
-    public TestVO read(String name){
-        connect();
-        TestVO testVO = new TestVO();
-        String sql = "select * from test1 where name = (?)";
+        String sql = "select * from wifi";
 
         try{
             pstmt = connection.prepareStatement(sql);
-            pstmt.setString(1, name);
             ResultSet rs = pstmt.executeQuery();
             while(rs.next()){
-                testVO.setName(rs.getString("name"));
-                testVO.setAge(rs.getInt("age"));
-                testVO.setSex(rs.getString("sex"));
             }
+            rs.close();
         }catch (SQLException e){
             e.printStackTrace();
         }finally {
             disconnect();
         }
-
-        return testVO;
-    }
-
-    void dbSelect() {
-
+        return wifiVO;
     }
 
     public int delete(){

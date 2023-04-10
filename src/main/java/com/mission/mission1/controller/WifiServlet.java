@@ -105,7 +105,7 @@ public class WifiServlet extends HttpServlet {
 
             int res = dao.insert(wifiVOS);
         }
-        else if (cmdReq.equals("search")){
+        else if (cmdReq.equals("search")){  // 근처 WIFI 정보 보기
 
         }
     }

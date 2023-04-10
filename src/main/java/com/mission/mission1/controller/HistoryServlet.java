@@ -57,13 +57,6 @@ public class HistoryServlet extends HttpServlet {
             script.println("<script>");
             script.println("history.go(-1)");
             script.println("</script>");
-
-            /*request.setAttribute("lat", lat);
-            request.setAttribute("lnt", lnt);
-
-            RequestDispatcher view = request.getRequestDispatcher("home.jsp");
-            view.forward(request, response);*/
-
         }
     }
 

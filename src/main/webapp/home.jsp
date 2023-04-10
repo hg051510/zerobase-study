@@ -67,10 +67,6 @@
             |
             <a href="HistoryServlet?cmd=historyList" target = "_self">위치 히스토리 목록</a>
             |
-<%--            <form action = "/WifiServlet?cmd=insert" method="post">--%>
-<%--            <input type = "submit" value="db에 저장">--%>
-<%--            <input type = "hidden" name = "cmd" value="insert">--%>
-<%--            </form>--%>
             <a href="WifiServlet?cmd=openApi" target = "_self">Open API 와이파이 정보 구하기</a>
         </div>
         <div>

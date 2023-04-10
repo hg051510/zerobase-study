@@ -16,6 +16,7 @@
         <script type = "text/javascript" src = "./js/lib01.js"></script>
     </head>
     <body>
+        <h1><%=request.getAttribute("message")%></h1>
         <a href = "home.jsp">홈 으로 가기</a>
         <table border="1">
             <thead>
