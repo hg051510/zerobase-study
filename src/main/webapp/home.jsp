@@ -30,6 +30,7 @@
                     var lnt = position.coords.longitude;
                     // $('#lat').val(lat);
                     // $('#lnt').val(lnt);
+
                     document.getElementById('lat').value = lat;
                     document.getElementById('lnt').value = lnt;
 
@@ -75,8 +76,8 @@
         <div>
             </br>
             <form action="WifiServlet?cmd=search" method="post">
-                <label>LAT:<input class = "target" id = "lat" type="number" step = "0.0000001" placeholder="위도"></label>,
-                <label>LNT:<input class = "target" id = "lnt" type="number" step = "0.0000001" placeholder="경도"></label>
+                <label>LAT:<input class = "target" id = "lat" type="number" step = "0.0000001" placeholder="위도" value="0.0"></label>,
+                <label>LNT:<input class = "target" id = "lnt" type="number" step = "0.0000001" placeholder="경도" value="0.0"></label>
                 <input type="button" value = "내 위치 가져오기" onclick="clickBtn()">
                 <input type="submit" value = "근처 WIFI 정보 보기">
             </form>

@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import static java.lang.System.out;
+
 @WebServlet(name = "HistoryServlet", value = "/HistoryServlet")
 public class HistoryServlet extends HttpServlet {
     @Override
@@ -43,13 +45,25 @@ public class HistoryServlet extends HttpServlet {
         else if(cmdReq.equals("insert")){
             HistoryVO vo = new HistoryVO();
             HistoryDAO dao = new HistoryDAO();
+            float lat = Float.parseFloat(request.getParameter("lat1"));
+            float lnt = Float.parseFloat(request.getParameter("lnt1"));
 
-            vo.setX_point(Float.parseFloat(request.getParameter("lat1")));
-            vo.setY_point(Float.parseFloat(request.getParameter("lnt1")));
+            vo.setX_point(lat);
+            vo.setY_point(lnt);
 
             dao.historyInsert(vo);
+
+            PrintWriter script = response.getWriter();
+            script.println("<script>");
+            script.println("history.go(-1)");
+            script.println("</script>");
+
+            /*request.setAttribute("lat", lat);
+            request.setAttribute("lnt", lnt);
+
             RequestDispatcher view = request.getRequestDispatcher("home.jsp");
-            view.forward(request, response);
+            view.forward(request, response);*/
+
         }
     }
 

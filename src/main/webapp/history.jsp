@@ -39,7 +39,7 @@
                 <td><%= vo.getX_point()%></td>
                 <td><%= vo.getY_point()%></td>
                 <td><%= vo.getTime()%></td>
-                <td><button type="button" onclick="location.href='HistoryServlet?cmd=delete&id=<%=vo.getId()%>'">삭제</button></td>
+                <td align="center"><button type="button" onclick="location.href='HistoryServlet?cmd=delete&id=<%=vo.getId()%>'">삭제</button></td>
             </tr>
             <%
                 }
